@@ -8,7 +8,7 @@ import torch
 from torch import nn, einsum
 from torch.special import expm1
 import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset as TorchDataset, DataLoader
 
 from torch.optim import Adam
 from torchvision import transforms as T, utils
@@ -578,7 +578,7 @@ class BitDiffusion(nn.Module):
 
 # dataset classes
 
-class Dataset(Dataset):
+class Dataset(TorchDataset):
     def __init__(
         self,
         folder,
